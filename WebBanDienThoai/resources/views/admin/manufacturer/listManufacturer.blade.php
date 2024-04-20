@@ -30,7 +30,7 @@
                     <tbody>
                         @foreach($manufacturers as $manufacturer)
                         <tr>
-                            <td>{{ $manufacturer->id }}</td>
+                            <td>{{ $manufacturer->id_manufacturer }}</td>
                             <td>{{ $manufacturer->name_manufacturer }}</td>
                             <td><img src="{{ asset('uploads/manufacturerimage/' . $manufacturer->image_manufacturer) }}"
                                     alt="" style="width: 40%;height: 100px;margin: 20px;"></td>
