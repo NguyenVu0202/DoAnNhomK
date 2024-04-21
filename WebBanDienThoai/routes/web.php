@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ManufacturerController;
+use App\Http\Controllers\Admin\ProductController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('dashboard', [CategoryController::class, 'dashboard']);
@@ -17,3 +18,9 @@ Route::post('addmanufacturer', [ManufacturerController::class, 'addManufacturer'
 Route::get('deletemanufacturer', [ManufacturerController::class, 'deleteManufacturer'])->name('manufacturer.deletemanufacturer');
 Route::get('updatemanufacturer', [ManufacturerController::class, 'indexUpdateManufacturer'])->name('manufacturer.updateindex');
 Route::post('updatemanufacturer', [ManufacturerController::class, 'updateManufacturer'])->name('manufacturer.updateManufacturer');
+Route::get('listproduct', [ProductController::class, 'indexProduct'])->name('product.listproduct');
+Route::get('addproduct', [ProductController::class, 'indexAddProduct'])->name('product.indexaddproduct');
+Route::post('addproduct', [ProductController::class, 'addProduct'])->name('product.addproduct');
+Route::get('deleteproduct', [ProductController::class, 'deleteProduct'])->name('product.deleteproduct');
+Route::get('updateproduct', [ProductController::class, 'indexUpdateProduct'])->name('product.indexUpdateproduct');
+Route::post('updateproduct', [ProductController::class, 'updateProduct'])->name('product.updateproduct');
