@@ -26,6 +26,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('manufacturer.listmanufacturer') }}">Hãng Sản Xuất</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('product.listproduct') }}">Sản Phẩm</a>
+                    </li>
                 @else
                     <li class="nav-item">
                         <a class="nav-link" href="">Đăng Xuất</a>
