@@ -95,7 +95,7 @@
                                         <div class="row">
                                             <div class="col-md-3"><span>Ảnh sản phẩm</span></div>
                                             <div class="col-md-9"><input type="file" id="fileToUpload"
-                                                    class="form-control" name="image_address_product" required></div>
+                                                    class="form-control" name="image_address_product"></div>
                                         </div>
 
                                         @if ($errors->has('image_address_product'))

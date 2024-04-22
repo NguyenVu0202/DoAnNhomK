@@ -93,6 +93,8 @@ class ProductController extends Controller
         $product->id_manufacturer = $id_manufacturer;
         $product->name_product = $input['name_product'];
         $product->quantity_product = $input['quantity_product'];
+        $product->describe_product = $input['describe_product'];
+        $product->specifications = $input['specifications'];
         if($request->hasFile('image_address_product'))
         {
             //Xoa ảnh cũ
@@ -107,10 +109,8 @@ class ProductController extends Controller
             $filename = time().'.'.$ex;
             $file->move('uploads/productimage/',$filename);
             $manufacturer['image_address_product'] = $filename;
-        }
-        $product->image_address_product =  $manufacturer['image_address_product'];
-        $product->describe_product = $input['describe_product'];
-        $product->specifications = $input['specifications'];
+            $product->image_address_product =  $manufacturer['image_address_product'];     
+        }   
         $product->save();
         return redirect()->route('product.listproduct');
     }
