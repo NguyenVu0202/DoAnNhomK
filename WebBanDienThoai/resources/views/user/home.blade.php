@@ -373,7 +373,7 @@
                     </div>
                 </div>
             </div>
-            
+            {{ $products->links(); }}
             <!-- /Products tab & slick -->
         </div>
         <!-- /row -->
