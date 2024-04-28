@@ -14,6 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
+
             $table->id('id_product');
             $table->string('id_category');
             $table->string('id_manufacturer');
@@ -23,6 +24,8 @@ return new class extends Migration
             $table->string('image_address_product');
             $table->string('describe_product');
             $table->string('specifications');
+            $table->timestamps();
+            
         });
     }
 
