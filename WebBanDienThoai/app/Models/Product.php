@@ -9,7 +9,6 @@ class Product extends Model
 {
     use HasFactory;
 
-    public $timestamps = false;
     protected $primaryKey = 'id_product';
 
     protected $fillable = [

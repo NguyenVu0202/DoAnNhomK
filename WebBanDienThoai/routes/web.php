@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ManufacturerController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\User\HomeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('dashboard', [CategoryController::class, 'dashboard']);
@@ -24,3 +25,4 @@ Route::post('addproduct', [ProductController::class, 'addProduct'])->name('produ
 Route::get('deleteproduct', [ProductController::class, 'deleteProduct'])->name('product.deleteproduct');
 Route::get('updateproduct', [ProductController::class, 'indexUpdateProduct'])->name('product.indexUpdateproduct');
 Route::post('updateproduct', [ProductController::class, 'updateProduct'])->name('product.updateproduct');
+Route::get('Home', [HomeController::class, 'indexHome']);

@@ -34,19 +34,23 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($products as $product)
+                    @foreach($products as $product)
                         <tr>
                             <td>{{ $product->id_product }}</td>
-                            @foreach($productsWithCategorys as $productsWithCategory)
-                            @if($product->id_category == $productsWithCategory->id_category)
-                            <td>{{ $productsWithCategory->name_category }}</td>
+                            @foreach($categorys as $category)
+                            @if($product->id_category == $category->id_category)
+                            <td>{{ $category->name_category }}</td>
+                            @break
                             @endif
                             @endforeach
-                            @foreach($productsWithManufacturers as $productsWithManufacturer)
-                            @if($product->id_manufacturer == $productsWithManufacturer->id_manufacturer)
-                            <td>{{ $productsWithManufacturer->name_manufacturer }}</td>
+
+                            @foreach($manufacturers as $manufacturer)
+                            @if($product->id_manufacturer == $manufacturer->id_manufacturer)
+                            <td>{{ $manufacturer->name_manufacturer }}</td>
+                            @break
                             @endif
                             @endforeach
+
                             <td>{{ $product->name_product }}</td>
                             <td>{{ $product->quantity_product }}</td>
                             <td>{{ $product->price_product }}</td>

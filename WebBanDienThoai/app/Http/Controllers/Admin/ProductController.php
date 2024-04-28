@@ -13,16 +13,12 @@ class ProductController extends Controller
 {
     public function indexProduct() {
         $products = Product::paginate(2);
-        $productsWithCategorys = Product::select('products.*', 'categories.name_category')
-            ->leftJoin('categories', 'products.id_category', '=', 'categories.id_category')
-            ->get();
-        $productsWithManufacturers = Product::select('products.*', 'manufacturers.name_manufacturer')
-            ->leftJoin('manufacturers', 'products.id_manufacturer', '=', 'manufacturers.id_manufacturer')
-            ->get();
+        $category = Category::all();
+        $manufacturer = Manufacturer::all();
         return view('admin.product.listproduct', [
             'products' => $products,
-            'productsWithCategorys' => $productsWithCategorys,
-            'productsWithManufacturers' => $productsWithManufacturers
+            'categorys' => $category,
+            'manufacturers' => $manufacturer,
         ]);
     }    
 
