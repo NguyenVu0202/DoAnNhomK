@@ -48,13 +48,9 @@
                     <li><a href="#"><i class="fa fa-envelope-o"></i> email@email.com</a></li>
                     <li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
                 </ul>
-                 <!-- <ul class="header-links pull-right">
-                    <li><a href="{{ route('signout') }}"><i class="fa fa-user-o"></i> Logout</a></li>
-                </ul> -->
                 <ul class="header-links pull-right">
                     <li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
                 </ul>
-               
             </div>
         </div>
         <!-- /TOP HEADER -->
@@ -247,7 +243,7 @@
                                             @break
                                             @endif
                                             @endforeach
-                                            <h3 class="product-name"><a href="#">{{ $get6newproduct->name_product }}</a></h3>
+                                            <h3 class="product-name"><a href="{{ route('product.indexDetailproduct', ['id' => $get6newproduct->id_product]) }}">{{ $get6newproduct->name_product }}</a></h3>
                                             <h4 class="product-price">{{ $get6newproduct->price_product }} VNĐ</h4>
                                             <div class="product-btns"></div>
                                         </div>
@@ -360,7 +356,7 @@
                                     @break
                                     @endif
                                     @endforeach
-                                    <h3 class="product-name"><a href="#">{{ $product->name_product }}</a></h3>
+                                    <h3 class="product-name"><a href="{{ route('product.indexDetailproduct', ['id' => $product->id_product]) }}">{{ $product->name_product }}</a></h3>
                                     <h4 class="product-price">{{ $product->price_product }} VNĐ</h4>
                                     <div class="product-btns"></div>
                                 </div>
