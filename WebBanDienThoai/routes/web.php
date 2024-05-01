@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\ManufacturerController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\User\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CustomerController;
 
 Route::get('dashboard', [CategoryController::class, 'dashboard']);
 Route::get('category', [CategoryController::class, 'indexCategory'])->name('category.index');
@@ -26,3 +27,16 @@ Route::get('deleteproduct', [ProductController::class, 'deleteProduct'])->name('
 Route::get('updateproduct', [ProductController::class, 'indexUpdateProduct'])->name('product.indexUpdateproduct');
 Route::post('updateproduct', [ProductController::class, 'updateProduct'])->name('product.updateproduct');
 Route::get('Home', [HomeController::class, 'indexHome']);
+
+
+
+// Register Client
+Route::get('/register',[CustomerController::class,'indexRegister']);
+Route::post('/register',[CustomerController::class,'authRegister'])->name('user.cus_register');
+
+// Login client
+Route::get('/login',[CustomerController::class,'indexLogin']);
+Route::post('/login',[CustomerController::class,'authLogin'])->name('user.cus_login');
+
+// Logout
+Route::get('/signout', [CrudUserController::class, 'signOut'])->name('signout');
