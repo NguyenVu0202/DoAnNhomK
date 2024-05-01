@@ -27,7 +27,7 @@ Route::get('deleteproduct', [ProductController::class, 'deleteProduct'])->name('
 Route::get('updateproduct', [ProductController::class, 'indexUpdateProduct'])->name('product.indexUpdateproduct');
 Route::post('updateproduct', [ProductController::class, 'updateProduct'])->name('product.updateproduct');
 Route::get('Home', [HomeController::class, 'indexHome']);
-
+Route::get('detailproduct', [HomeController::class, 'indexDetailProduct'])->name('product.indexDetailproduct');
 
 
 // Register Client

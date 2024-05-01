@@ -28,4 +28,12 @@ class HomeController extends Controller
             'productsWithCategorys' => $productsWithCategorys,
             'productsWithManufacturers' => $productsWithManufacturers]);
     }
+    public function indexDetailProduct(Request $request){
+        $product_id = $request->get('id');
+        $product = Product::where('id_product',$product_id)->first();
+        $specification = $product->specifications;
+        $specificationArray = explode(';', $specification);
+        return view('user.detailproduct', ['specifications' => $specificationArray,'product' => $product]);
+    }
+
 }
