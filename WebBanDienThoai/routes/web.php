@@ -46,6 +46,7 @@ Route::get('detailsorderindex',[detailsOrderController::class, 'detailsOrderInde
 Route::get('orderindexAdmin',[AdminOrderController::class, 'orderindexAdmin'])->name('admin.orderindexAdmin');
 Route::get('admindetailsorderindex',[AdminOrderController::class, 'adminDetailsOrderIndex'])->name('admin.adminDetailsOrderIndex');
 Route::get('admindetailsorderdelete',[AdminOrderController::class, 'adminDetailsOrderDelete'])->name('admin.adminDetailsOrderDelete');
+Route::get('adminsearchorder',[AdminOrderController::class, 'adminSearchOrder'])->name('admin.adminSearchOrder');
 
 // Register Client
 Route::get('/register',[CustomerController::class,'indexRegister']);

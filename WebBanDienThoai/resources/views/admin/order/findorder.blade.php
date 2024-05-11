@@ -10,7 +10,7 @@
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-6">
-                            <h2>Quản Lý Hóa Đơn</h2>
+                            <h2>Tìm Kiếm Hóa Đơn</h2>
                         </div>
                     </div>
                 </div>
@@ -31,19 +31,23 @@
                         </tr>
                     </thead>					
                     <tbody>
-					@foreach($order as $orders)
-                        <tr>
-                            <td>{{ $orders->id_order }}</td>
-                            <td>{{ $orders->id_user }}</td>
-                            <td>{{ $orders->total_order }}</td>
-                            <td>{{ $orders->address }}</td>
-                            <td>{{ $orders->created_at }}</td>
-                            <td>
-								<a href="{{ route('admin.adminDetailsOrderIndex', ['id_order' => $orders->id_order]) }}" class="mx-1">Xem</a>
-                                <a href="{{ route('admin.adminDetailsOrderDelete', ['id_order' => $orders->id_order]) }}">Xóa</a>
-                            </td>
-                        </tr>
-					@endforeach
+                        @if($order)
+                            <tr>
+                                <td>{{ $order->id_order }}</td>
+                                <td>{{ $order->id_user }}</td>
+                                <td>{{ $order->total_order }}</td>
+                                <td>{{ $order->address }}</td>
+                                <td>{{ $order->created_at }}</td>
+                                <td>
+                                    <a href="{{ route('admin.adminDetailsOrderIndex', ['id_order' => $order->id_order]) }}" class="mx-1">Xem</a>
+                                    <a href="{{ route('admin.adminDetailsOrderDelete', ['id_order' => $order->id_order]) }}">Xóa</a>
+                                </td>
+                            </tr>
+                        @else
+                            <tr>
+                                <td colspan="6">Không tìm thấy mã hóa đơn này</td>
+                            </tr>
+                        @endif
                     </tbody>
                 </table>
                 <div class="clearfix">
