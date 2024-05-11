@@ -32,8 +32,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     }
     ?>
 		<form action="{{ route('user.cus_login') }}" method="post">
-            {{ csrf_field() }}
-			@csrf
+            @csrf
+			{{ csrf_field() }}
+			
 			<input type="email" class="ggg" name="email" placeholder="Nhập email" required="">
 			@if ($errors->has('email'))
                                 <span class="text-danger">{{ $errors->first('email') }}</span>

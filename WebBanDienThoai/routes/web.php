@@ -1,9 +1,15 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminOrderController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ManufacturerController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\User\detailsOrderController;
 use App\Http\Controllers\User\HomeController;
+use App\Http\Controllers\User\CartController;
+use App\Http\Controllers\User\OrderController;
+use App\Http\Controllers\User\PaymentController;
+use App\Models\DetailsOrder;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomerController;
 
@@ -26,9 +32,21 @@ Route::post('addproduct', [ProductController::class, 'addProduct'])->name('produ
 Route::get('deleteproduct', [ProductController::class, 'deleteProduct'])->name('product.deleteproduct');
 Route::get('updateproduct', [ProductController::class, 'indexUpdateProduct'])->name('product.indexUpdateproduct');
 Route::post('updateproduct', [ProductController::class, 'updateProduct'])->name('product.updateproduct');
-Route::get('Home', [HomeController::class, 'indexHome']);
+Route::get('Home', [HomeController::class, 'indexHome'])->name('home.index');
 Route::get('detailproduct', [HomeController::class, 'indexDetailProduct'])->name('product.indexDetailproduct');
-
+Route::post('addcard', [CartController::class, 'addCart'])->name('cart.addCard');
+Route::get('mycard', [CartController::class, 'indexCard'])->name('cart.indexCart');
+Route::post('mycard', [CartController::class, ''])->name('a');
+Route::get('deleteproductcard', [CartController::class, 'deleteProductCart'])->name('cart.deleteproductcart');
+Route::get('myorder', [OrderController::class, 'addOrder'])->name('order.addOrder');
+Route::get('payment', [PaymentController::class, 'paymentIndex'])->name('payment.paymentindex');
+Route::get('detailsorder', [detailsOrderController::class, 'addDetailsOrder'])->name('detailsorder.addDetailsOrder');
+Route::get('orderindex',[OrderController::class, 'orderIndex'])->name('order.orderIndex');
+Route::get('detailsorderindex',[detailsOrderController::class, 'detailsOrderIndex'])->name('detailsorder.detailsOrderIndex');
+Route::get('orderindexAdmin',[AdminOrderController::class, 'orderindexAdmin'])->name('admin.orderindexAdmin');
+Route::get('admindetailsorderindex',[AdminOrderController::class, 'adminDetailsOrderIndex'])->name('admin.adminDetailsOrderIndex');
+Route::get('admindetailsorderdelete',[AdminOrderController::class, 'adminDetailsOrderDelete'])->name('admin.adminDetailsOrderDelete');
+Route::get('adminsearchorder',[AdminOrderController::class, 'adminSearchOrder'])->name('admin.adminSearchOrder');
 
 // Register Client
 Route::get('/register',[CustomerController::class,'indexRegister']);
@@ -39,4 +57,4 @@ Route::get('/login',[CustomerController::class,'indexLogin']);
 Route::post('/login',[CustomerController::class,'authLogin'])->name('user.cus_login');
 
 // Logout
-Route::get('/signout', [CrudUserController::class, 'signOut'])->name('signout');
+Route::get('/signout', [CustomerController::class, 'signOut'])->name('signout');

@@ -4,11 +4,14 @@
 <!-- Product section-->
 @section('content')
 <main>
+    <form action="{{ route('cart.addCard') }}" method="post">
+    @csrf
     <div class="container">
         <div class="row">
             <div class="col-md-6"><img src="{{ asset('uploads/productimage/' . $product->image_address_product) }}"
                     alt="" style="width: 80%; height: 500px;"></div>
             <div class="col-md-6" style="margin-top:150px;">
+            <input type="hidden" name="id_product" value="{{ $product->id_product }}">
                 <h1>{{ $product->name_product }}</h1>
                 <h4 style="color:red;font-weight:600;">{{ $product->price_product }} VND</h4>
                 <p style="color:gray;font-weight:600;">Kho: {{ $product->quantity_product }} </p>
@@ -19,12 +22,12 @@
                     <div class="col-md-6">
                         <div class="wrapper">
                             <span class="minus">-</span>
-                            <input type="text" class="num" name="quantity_card" id="quantity_card" value="1">
+                            <input type="text" class="num" name="quantity_cart" id="quantity_cart" value="1">
                             <span class="plus">+</span>
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-warning btn-addCart">Thêm vào giỏ hàng</button>
+                <button type="submit" class="btn btn-warning btn-addCart">Thêm vào giỏ hàng</button>
             </div>
         </div>
         <div class="row">
@@ -80,6 +83,7 @@
         </div>
 
     </div>
+    </form>
 </main>
 <style>
 .wrapper {

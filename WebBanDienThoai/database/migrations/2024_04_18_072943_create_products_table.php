@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('quantity_product');
             $table->string('price_product');
             $table->string('image_address_product');
-            $table->string('describe_product');
+            $table->text('describe_product');
             $table->string('specifications');
             $table->timestamps();
             
