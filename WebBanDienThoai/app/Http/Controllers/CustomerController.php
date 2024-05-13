@@ -25,6 +25,7 @@ class CustomerController extends Controller
             'password' => 'required|min:6',
             'phone' => 'required|max:10',
             'address' => 'required',
+          
 
         ]);
         $data = $request->all();
@@ -34,6 +35,7 @@ class CustomerController extends Controller
             'password' => Hash::make($data['password']),
             'phone' => $data['phone'],
             'address' => $data['address'],
+            
         ]);
         return redirect()->route('user.cus_login');
 
@@ -51,13 +53,15 @@ class CustomerController extends Controller
             'password' => 'required',
         ]);
         $user = User::where('email', $request->email)->first();
-
         if ($user && Hash::check($request->password, $user->password)) {
+            Session::put('id','key');
             session('cart');
-            $request->session()->put('cart.user_id', $user->id_user);    
+            $request->session()->put('cart.user_id', $user->id_user);
             return redirect()->intended('Home')->withSuccess('Signed in');
         }
-        return redirect('login')->withSuccess('Login details are not valid');
+        return redirect()->back()->withInput($request->only('password'))->withErrors([
+            'password' => 'SAI TK Hoac MK',
+        ]);
     }
 
     public function signOut(Request $request)

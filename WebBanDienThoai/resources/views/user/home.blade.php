@@ -1,3 +1,8 @@
+@extends('user.dashboard_user')
+
+
+<!-- user section-->
+@section('content')
 <!DOCTYPE html>
 <html lang="en">
 
@@ -510,3 +515,4 @@
 </body>
 
 </html>
+@endsection
