@@ -9,7 +9,7 @@ use App\Models\Category;
 class CategoryController extends Controller
 {
     public function indexCategory(){
-        $cate = Category::all();
+        $cate = Category::paginate(2);
         return view('admin.category.categoryIndex', ['categories' => $cate]);
     }
 
