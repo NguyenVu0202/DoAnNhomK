@@ -12,6 +12,7 @@ use App\Http\Controllers\User\PaymentController;
 use App\Models\DetailsOrder;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\Admin\AdminUserController;
 
 Route::get('dashboard', [CategoryController::class, 'dashboard']);
 Route::get('category', [CategoryController::class, 'indexCategory'])->name('category.index');
@@ -58,3 +59,12 @@ Route::post('/login',[CustomerController::class,'authLogin'])->name('user.cus_lo
 
 // Logout
 Route::get('/signout', [CustomerController::class, 'signOut'])->name('signout');
+
+// List user Admin
+Route::get('/listuser',[AdminUserController::class,'listUser'])->name('user.listuser');
+//  Delete user admin
+Route::get('deleteuser',[AdminUserController::class,'deleteUser'])->name('user.deleteUser');
+
+// Update user admin
+Route::get('/updateuser',[AdminUserController::class,'updateUser'])->name('user.updateUser');
+Route::post('/updateuser',[AdminUserController::class,'postUpdateUser'])->name('user.postUpdateUser');

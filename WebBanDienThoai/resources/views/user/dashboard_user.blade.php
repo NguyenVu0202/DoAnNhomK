@@ -26,7 +26,6 @@
                   <?php
                     }
                     else
-                    
                     {
                         ?>
                         <li class="nav-item">
