@@ -23,10 +23,10 @@
             <th>{{$user->phone}}</th>
             <th>{{$user->address}}</th> 
             <th>
-            <a href="{{route('user.updateUser',['id' => $user->id]) }}">Update</a>
+            <a href="{{route('user.updateUser',['id' => $user->id_user]) }}">Update</a>
             </th>
             <th>
-                <a href="{{route('user.deleteUser',['id' => $user->id]) }}">Delete</a>
+                <a href="{{route('user.deleteUser',['id' => $user->id_user]) }}">Delete</a>
             </th>
         </tr>
         
