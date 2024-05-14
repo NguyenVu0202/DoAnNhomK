@@ -51,7 +51,6 @@ class CategoryController extends Controller
     {
         $cate_id = $request->get('id');
         $cate = Category::destroy($cate_id);
-
         return redirect('category')->withSuccess('You have Signed-in');
     }
 }

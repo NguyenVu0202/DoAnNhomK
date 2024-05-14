@@ -14,12 +14,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="mt-4 mb-5 form-wrapper">
-                    <form action="{{ route('admin.adminSearchOrder') }}">
-                        <input type="text" name="id">
-                        <input type="submit" value="Tìm kiếm">
-                    </form>
-                </div>
                 <table class="table table-striped table-hover">				
                     <thead>
                         <tr>                   

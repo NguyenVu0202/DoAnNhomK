@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminOrderController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ManufacturerController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\User\detailsOrderController;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\CartController;
@@ -46,8 +47,15 @@ Route::get('detailsorderindex',[detailsOrderController::class, 'detailsOrderInde
 Route::get('orderindexAdmin',[AdminOrderController::class, 'orderindexAdmin'])->name('admin.orderindexAdmin');
 Route::get('admindetailsorderindex',[AdminOrderController::class, 'adminDetailsOrderIndex'])->name('admin.adminDetailsOrderIndex');
 Route::get('admindetailsorderdelete',[AdminOrderController::class, 'adminDetailsOrderDelete'])->name('admin.adminDetailsOrderDelete');
-Route::get('adminsearchorder',[AdminOrderController::class, 'adminSearchOrder'])->name('admin.adminSearchOrder');
-
+Route::get('detailpost',[PostController::class, 'detailPost'])->name('post.detailpost');
+Route::get('addpost',[PostController::class, 'indexAddPost'])->name('post.indexaddpost');
+Route::post('addpost',[PostController::class, 'addPost'])->name('post.addpost');
+Route::get('listpost',[PostController::class, 'listPost'])->name('post.listpost');
+Route::get('listpostuser',[PostController::class, 'indexListPostUser'])->name('post.indexListPostUser');
+Route::get('deletepost',[PostController::class, 'deletePost'])->name('post.deletepost');
+Route::get('updatepost',[PostController::class, 'indexUpdatePost'])->name('post.indexupdatepost');
+Route::post('updatepost',[PostController::class, 'updatePost'])->name('post.updatepost');
+Route::post('searchpost',[PostController::class, 'searchPost'])->name('post.searchpost');
 // Register Client
 Route::get('/register',[CustomerController::class,'indexRegister']);
 Route::post('/register',[CustomerController::class,'authRegister'])->name('user.cus_register');

@@ -39,12 +39,4 @@ class AdminOrderController extends Controller
         
         return redirect()->route('admin.orderindexAdmin');
     }
-
-    public function adminSearchOrder(Request $request)
-    {
-        $data = $request->all();
-        $id_order = $data['id'];
-        $order = Order::where('id_order', $id_order)->first();
-        return view('admin.order.findorder', ['order' => $order]);
-    }
 }

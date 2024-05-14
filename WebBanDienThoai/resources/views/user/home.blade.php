@@ -1,8 +1,3 @@
-@extends('user.dashboard_user')
-
-
-<!-- user section-->
-@section('content')
 <!DOCTYPE html>
 <html lang="en">
 
@@ -94,16 +89,6 @@
                     <!-- ACCOUNT -->
                     <div class="col-md-4 clearfix">
                         <div class="header-ctn">
-                            <!-- Wishlist -->
-                            <div>
-                                <a href="#">
-                                    <i class="fa fa-heart-o"></i>
-                                    <span>Your Wishlist</span>
-                                    <div class="qty">2</div>
-                                </a>
-                            </div>
-                            <!-- /Wishlist -->
-
                             <!-- Cart -->
                             <div class="dropdown">
                                 <a class="dropdown-toggle" href="{{ route('cart.indexCart') }}">
@@ -120,8 +105,15 @@
                                     <span>Your Order</span>
                                 </a>
                             </div>
+                            <!-- new -->
+                            <div>
+                                <a href="{{ route('post.listpost') }}">
+                                <i class="fa fa-newspaper-o"></i>
+                                    <span>Bài viết</span>
+                                </a>
+                            </div>
+                            <!-- /new -->
                             <!-- /Cart -->
-
                             <!-- Menu Toogle -->
                             <div class="menu-toggle">
                                 <a href="#">
@@ -515,4 +507,3 @@
 </body>
 
 </html>
-@endsection

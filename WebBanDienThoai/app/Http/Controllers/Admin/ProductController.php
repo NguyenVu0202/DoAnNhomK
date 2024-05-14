@@ -104,8 +104,8 @@ class ProductController extends Controller
             $ex = $file->getClientOriginalExtension(); //Lay phan mo rong .jpn,....
             $filename = time().'.'.$ex;
             $file->move('uploads/productimage/',$filename);
-            $manufacturer['image_address_product'] = $filename;
-            $product->image_address_product =  $manufacturer['image_address_product'];     
+            $input['image_address_product'] = $filename;
+            $product->image_address_product =  $input['image_address_product'];     
         }   
         $product->save();
         return redirect()->route('product.listproduct');
