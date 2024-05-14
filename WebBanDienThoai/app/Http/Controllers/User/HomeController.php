@@ -35,4 +35,5 @@ class HomeController extends Controller
         $specificationArray = explode(';', $specification);
         return view('user.detailproduct', ['specifications' => $specificationArray,'product' => $product]);
     }
+
 }

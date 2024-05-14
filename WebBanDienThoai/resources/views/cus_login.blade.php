@@ -24,6 +24,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="log-w3">
 <div class="w3layouts-main">
 	<h2>Đăng nhập</h2>
+    <?php
+    $message = Session::get('message');
+    if ($message){
+        echo '<span class="text-alert">'. $message .'</span>';
+        session()->put('message', null);
+    }
+    ?>
 		<form action="{{ route('user.cus_login') }}" method="post">
             @csrf
 			{{ csrf_field() }}
@@ -41,17 +48,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<input type="submit" value="Đăng nhập" name="login">
 		</form>
 		<p>Bạn chưa có tài khoản?<a href="{{route('user.cus_register')}}">Tạo tài khoản</a></p>
-		<br><br><p><a href="{{route('home.index')}}" class="active" >Quay lại trang chủ</a></p>
+		<br><br><p><a href="/" class="active">Quay lại trang chủ</a></p>
 </div>
 </div>
-<!-- <script src="{{ asset("/backend/js/bootstrap.js") }}"></script>
+<script src="{{ asset("/backend/js/bootstrap.js") }}"></script>
 <script src="{{ asset("/backend/js/jquery.dcjqaccordion.2.7.js") }}"></script>
 <script src="{{ asset("/backend/js/scripts.js") }}"></script>
 <script src="{{ asset("/backend/js/jquery.slimscroll.js") }}"></script>
-<script src="{{ asset("/backend/js/jquery.nicescroll.js") }}"></script> -->
+<script src="{{ asset("/backend/js/jquery.nicescroll.js") }}"></script>
 <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
 <script src="js/jquery.scrollTo.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
 </body>
 </html>
