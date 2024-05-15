@@ -5,7 +5,8 @@
 <div class="container">
 <h1>List of users</h1>
 
-<form action="{{route('user.searchUser')}}" method="GET">
+<form action="{{route('user.searchUser')}}" method="POST">
+@csrf
     <input type="text" name="search" placeholder="Search...">
     <button type="submit">Search</button>
 </form>
@@ -38,5 +39,6 @@
         @endforeach
     </tbody>
 </table>
+{{$users->links()}}
 </div>
 @endsection('content')

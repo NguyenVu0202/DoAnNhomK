@@ -12,7 +12,7 @@ class AdminUserController extends Controller
 {
     // List user admin
     public function listUser(){
-        $users = User::all();
+        $users = User::paginate(3);
        
         return view ('admin.list.list_user',compact('users'));
     }
@@ -57,8 +57,9 @@ class AdminUserController extends Controller
     public function searchUser(Request $request)
     {
      $search = $request->input('search'); // lay dữ liệu tìm kiếm từ request
+     
 $users = User::where('name','like','%'.$search.'%')
 ->orWhere('email','like','%'.$search.'%')->get();
-return view('admin.list.list_user',['users'=>$users, 'search'=>$search]);
+return view('admin.list.search_user',['users'=>$users, 'search'=>$search]);
     }
 }
