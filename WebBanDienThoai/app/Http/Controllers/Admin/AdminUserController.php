@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Hash;
+use Illuminate\Support\Facades\Auth;
 
 
 class AdminUserController extends Controller
@@ -13,6 +13,7 @@ class AdminUserController extends Controller
     // List user admin
     public function listUser(){
         $users = User::all();
+       
         return view ('admin.list.list_user',compact('users'));
     }
     // delete user admin
@@ -51,5 +52,13 @@ class AdminUserController extends Controller
        $user->address = $input['address'];
        $user->save();
        return redirect('listuser')->withSuccess('you have signed-in');
+    }
+    //searchhh
+    public function searchUser(Request $request)
+    {
+     $search = $request->input('search'); // lay dữ liệu tìm kiếm từ request
+$users = User::where('name','like','%'.$search.'%')
+->orWhere('email','like','%'.$search.'%')->get();
+return view('admin.list.list_user',['users'=>$users, 'search'=>$search]);
     }
 }

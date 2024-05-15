@@ -4,10 +4,15 @@
 @section('content')
 <div class="container">
 <h1>List of users</h1>
+
+<form action="{{route('user.searchUser')}}" method="GET">
+    <input type="text" name="search" placeholder="Search...">
+    <button type="submit">Search</button>
+</form>
 <table class="table table-hover">
     <thead>
         <tr>
-           <th>Id</th>
+             <th>Id</th>
             <th>Name</th>
             <th>Email</th>
             <th>Phone</th>
@@ -17,7 +22,7 @@
     <tbody>
         @foreach($users as $user)
         <tr>
-            <th>{{$user->id}}</th>
+            <th>{{$user->id_user}}</th>
             <th>{{$user->name}}</th>
             <th>{{$user->email}}</th>
             <th>{{$user->phone}}</th>
