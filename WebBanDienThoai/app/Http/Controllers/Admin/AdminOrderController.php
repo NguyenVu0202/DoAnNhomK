@@ -12,7 +12,7 @@ class AdminOrderController extends Controller
 {
     public function orderindexAdmin()
     {
-        $order = Order::paginate(2);
+        $order = Order::all();
         return view('admin.order.orderindex', ['order' => $order]);
     }
 
@@ -38,5 +38,14 @@ class AdminOrderController extends Controller
 
         
         return redirect()->route('admin.orderindexAdmin');
+    }
+
+    public function adminSearchOrder(Request $request)
+    {
+        $data = $request->all();
+        $search = $data['id'];
+        $orders = Order::where('id_order', $search)
+        ->orWhere('id_user', $search)->get();
+        return view('admin.order.findorder', ['orders' => $orders]);
     }
 }

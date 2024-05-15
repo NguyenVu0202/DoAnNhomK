@@ -48,6 +48,7 @@ Route::get('detailsorderindex',[detailsOrderController::class, 'detailsOrderInde
 Route::get('orderindexAdmin',[AdminOrderController::class, 'orderindexAdmin'])->name('admin.orderindexAdmin');
 Route::get('admindetailsorderindex',[AdminOrderController::class, 'adminDetailsOrderIndex'])->name('admin.adminDetailsOrderIndex');
 Route::get('admindetailsorderdelete',[AdminOrderController::class, 'adminDetailsOrderDelete'])->name('admin.adminDetailsOrderDelete');
+Route::get('adminsearchorder',[AdminOrderController::class, 'adminSearchOrder'])->name('admin.adminSearchOrder');
 Route::get('detailpost',[PostController::class, 'detailPost'])->name('post.detailpost');
 Route::get('addpost',[PostController::class, 'indexAddPost'])->name('post.indexaddpost');
 Route::post('addpost',[PostController::class, 'addPost'])->name('post.addpost');

@@ -31,7 +31,8 @@
                         </tr>
                     </thead>					
                     <tbody>
-                        @if($order)
+                        @if($orders)
+                        @foreach($orders as $order)
                             <tr>
                                 <td>{{ $order->id_order }}</td>
                                 <td>{{ $order->id_user }}</td>
@@ -43,6 +44,7 @@
                                     <a href="{{ route('admin.adminDetailsOrderDelete', ['id_order' => $order->id_order]) }}">Xóa</a>
                                 </td>
                             </tr>
+                        @endforeach
                         @else
                             <tr>
                                 <td colspan="6">Không tìm thấy mã hóa đơn này</td>
