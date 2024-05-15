@@ -76,3 +76,6 @@ Route::get('deleteuser',[AdminUserController::class,'deleteUser'])->name('user.d
 // Update user admin
 Route::get('/updateuser',[AdminUserController::class,'updateUser'])->name('user.updateUser');
 Route::post('/updateuser',[AdminUserController::class,'postUpdateUser'])->name('user.postUpdateUser');
+
+// List_user  Search User
+route::get('/search',[AdminUserController::class,'searchUser'])->name('user.searchUser');
