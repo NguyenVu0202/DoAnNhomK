@@ -9,9 +9,9 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-light navbar-expand-lg mb-5" style="background-color: red;">
+    <nav class="navbar navbar-light navbar-expand-lg mb-5">
         <div class="container">
-            <a class="navbar-brand mr-auto" href="#">Admin</a>
+            <a class="navbar-brand mr-auto title" href="#">Quản trị viên</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -19,6 +19,9 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     @guest
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('home.index') }}">Home</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('category.index') }}">Danh mục</a>
                     </li>
@@ -32,7 +35,10 @@
                         <a class="nav-link" href="{{ route('admin.orderindexAdmin') }}">Đơn Hàng</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('user.listuser') }}">List User</a>
+                        <a class="nav-link" href="{{ route('user.listuser') }}">Người dùng</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('post.listpost') }}">Bài viết</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('signout') }}">Đăng Xuất</a>
@@ -48,7 +54,24 @@
     </nav>
 
     @yield('content')
-
+<style>
+    .title{
+        color: white !important;
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .nav-link{
+        font-size: 15px;
+        font-weight: bold;
+        color: white !important;
+    }
+    nav{
+        background: #217b7e;
+    }
+    .pagination{
+        background: white !important;
+    }
+</style>
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-@extends('admin.dashboard')
+@extends('user.dashboard_user')
 
 
 <!-- Product section-->
@@ -10,126 +10,136 @@
         <div class="row gx-4 gx-lg-5 align-items-center">
             <div class="table-wrapper">
                 <div class="table-title">
-                    <h4 style="text-align: center;border-bottom: 1px solid gray;padding-bottom: 20px">Giỏ hàng của bạn
+                    <h4 style="text-align: center;border-bottom: 1px solid gray;padding-bottom: 20px">Chi tiết hóa đơn
+                        của bạn
                     </h4>
                 </div>
-                    <form action="{{ route('order.orderIndex') }}">
-                        @foreach($order as $item)
+                <form action="{{ route('order.orderIndex') }}">
+                    @foreach($order as $item)
                         @if(!empty($item))
-                        <div class="card" id="product-item">
-                            <div class="card-body">
-                                <div class="product-item">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="image-product">
-                                                <img style="height:250px;" src="{{ asset('uploads/productimage/' . $item->image_address_product) }}"
-                                                    alt="">
+                            <div class="card" id="product-item">
+                                <div class="card-body">
+                                    <div class="product-item">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="image-product">
+                                                    <img style="height:250px;"
+                                                        src="{{ asset('uploads/productimage/' . $item->image_address_product) }}"
+                                                        alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="product-info">
+                                                    <span class="d-flex"><a href="#">
+                                                            <h3>{{ $item->name_product }}</h3>
+                                                        </a></span>
+                                                    <span class="price">Giá: {{ $item->price_product }}VNĐ</span>
+                                                    <br>
+                                                    <span>Số lượng đặt: {{ $item->quantity_detailsorder }}</span>
+                                                </div>
+
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="product-info">
-                                                <span class="d-flex"><a href="#">
-                                                        <h3>{{ $item->name_product }}</h3>
-                                                    </a></span>
-                                                <span class="price">Giá: {{ $item->price_product }}VNĐ</span>
-                                                <br>
-                                                <span>Số lượng đặt: {{ $item->quantity_detailsorder }}</span>
-                                            </div>
-
-                                        </div>                                   
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         @endif
-                        @endforeach  
-                        <div class="col-md-2 mt-5"><button class="btn btn-danger">Quay Lại</button></div> 
-                    </form>                             
+                    @endforeach  
+                    <div class="col-md-2 mt-5"><button class="btn btn-danger btn-backup">Quay Lại</button></div>
+                </form>
             </div>
         </div>
 </main>
 
 <style>
-.product-info {
-    margin-bottom: 20px;
-    margin-top: 20px;
+.btn-backup{
+    margin-top: 40px;
 }
 
-.quantity{
-    margin-top: 50px;
-}
+    .cart-form {
+        margin-top: 20px;
+    }
 
-.form-cart .product-item {
-    width: 100%;
-}
+    .product-info {
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
 
-.form-cart .product-item img {
-    margin-right: 25%;
-    margin-left: 25%;
-    width: 50%;
-    height: 200px;
-}
+    .quantity {
+        margin-top: 50px;
+    }
 
-.product-info a {
-    text-decoration: none;
-}
+    .form-cart .product-item {
+        width: 100%;
+    }
 
-.product-info a h3 {
-    color: gray;
-}
+    .form-cart .product-item img {
+        margin-right: 25%;
+        margin-left: 25%;
+        width: 50%;
+        height: 200px;
+    }
 
-.product-info .price {
-    font-weight: 600;
-    color: red;
-}
+    .product-info a {
+        text-decoration: none;
+    }
 
-#total {
-    background-color: #fff;
-    border: 1px solid rgba(145, 158, 171, .239);
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    bottom: 0;
-    box-shadow: 0 -4px 20px -1px rgba(40, 124, 234, .15);
-    display: flex;
-    justify-content: space-between;
-    left: 50%;
-    margin: auto;
-    max-width: 1000px;
-    padding: 10px 10px 15px;
-    position: fixed;
-    transform: translateX(-50%);
-    width: 100%;
-    z-index: 11;
-}
+    .product-info a h3 {
+        color: gray;
+    }
 
-.total-card {
-    color: red;
-    font-weight: 600;
-}
+    .product-info .price {
+        font-weight: 600;
+        color: red;
+    }
 
-#product-item {
-    max-width: 100%;
-    margin-top: 20px
-}
+    #total {
+        background-color: #fff;
+        border: 1px solid rgba(145, 158, 171, .239);
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        bottom: 0;
+        box-shadow: 0 -4px 20px -1px rgba(40, 124, 234, .15);
+        display: flex;
+        justify-content: space-between;
+        left: 50%;
+        margin: auto;
+        max-width: 1000px;
+        padding: 10px 10px 15px;
+        position: fixed;
+        transform: translateX(-50%);
+        width: 100%;
+        z-index: 11;
+    }
+
+    .total-card {
+        color: red;
+        font-weight: 600;
+    }
+
+    #product-item {
+        max-width: 100%;
+        margin-top: 20px
+    }
 </style>
 
 <script>
-const plus = document.querySelector(".plus"),
-    minus = document.querySelector(".minus"),
-    num = document.querySelector(".num");
-let a = 1;
-plus.addEventListener("click", () => {
-    a++;
-    a = (a < 10) ? "0" + a : a;
-    num.innerText = a;
-});
-minus.addEventListener("click", () => {
-    if (a > 1) {
-        a--;
+    const plus = document.querySelector(".plus"),
+        minus = document.querySelector(".minus"),
+        num = document.querySelector(".num");
+    let a = 1;
+    plus.addEventListener("click", () => {
+        a++;
         a = (a < 10) ? "0" + a : a;
         num.innerText = a;
-    }
+    });
+    minus.addEventListener("click", () => {
+        if (a > 1) {
+            a--;
+            a = (a < 10) ? "0" + a : a;
+            num.innerText = a;
+        }
 
-});
+    });
 </script>
 @endsection

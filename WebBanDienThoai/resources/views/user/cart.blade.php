@@ -1,4 +1,4 @@
-@extends('admin.dashboard')
+@extends('user.dashboard_user')
 
 
 <!-- Product section-->
@@ -51,13 +51,13 @@
                     @endif
                     @endforeach
                     <div class="mt-5">
-                        Thành tiền:    <input type="text" name="total" value="{{ $totalAll }}" readonly style="border: none; outline: none; background-color: transparent;"> VNĐ
+                        <label>Thành tiền:</label><input type="text" name="total" value="{{ $totalAll }}" readonly style="border: none; outline: none; background-color: transparent;">
                     </div>
                     <div class="col-md-10 mt-5"></div>
                     <div class="col-md-2"><button class="btn btn-danger">Thanh toán</button></div>
                 </form>
                 <div class="col-md-10 mt-5"></div>
-                <div class="col-md-2"><button class="btn btn-danger"><a href="{{ route('home.index') }}">Quay lại</a></button></div>
+                <div class="col-md-2"><button class="btn btn-danger btn-backup"><a href="{{ route('home.index') }}">Quay lại</a></button></div>
             </div>
         </div>
 </main>
@@ -123,6 +123,23 @@
 #product-item {
     max-width: 100%;
     margin-top: 20px
+}
+
+.btn-backup{
+    margin-top: 20px !important;
+}
+
+.btn-backup a{
+    text-decoration: none;
+    color: white;
+}
+
+label{
+    margin-top: 40px;
+}
+
+.cart-form{
+    margin-top: 20px;
 }
 </style>
 

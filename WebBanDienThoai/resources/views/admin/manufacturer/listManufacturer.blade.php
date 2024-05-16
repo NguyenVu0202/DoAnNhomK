@@ -33,12 +33,12 @@
                             <td>{{ $manufacturer->id_manufacturer }}</td>
                             <td>{{ $manufacturer->name_manufacturer }}</td>
                             <td><img src="{{ asset('uploads/manufacturerimage/' . $manufacturer->image_manufacturer) }}"
-                                    alt="" style="width: 40%;height: 100px;margin: 20px;"></td>
+                                    alt=""></td>
                             <td>
                                 <a href="{{ route('manufacturer.updateindex', ['id' => $manufacturer->id_manufacturer]) }}"
-                                    class="mx-1">Sửa</a>
+                                    class="mx-1 btn btn-primary">Sửa</a>
                                 <a
-                                    href="{{ route('manufacturer.deletemanufacturer', ['id' => $manufacturer->id_manufacturer]) }}">Xóa</a>
+                                    href="{{ route('manufacturer.deletemanufacturer', ['id' => $manufacturer->id_manufacturer]) }}" class="btn btn-danger">Xóa</a>
                             </td>
                         </tr>
                         @endforeach
@@ -53,4 +53,17 @@
         </div>
     </div>
 </main>
+<style>
+    table th, table td{
+        border: 1px solid black;
+    }
+    table tbody td img{
+        width: 40%;
+        margin-left: 25%;
+        margin-right: 25%;
+        height: 100px;
+        object-fit: fill;
+        
+    }
+</style>
 @endsection

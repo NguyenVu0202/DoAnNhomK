@@ -1,10 +1,10 @@
-@extends('admin.dashboard')
+@extends('user.dashboard_user')
 
 
 <!-- Product section-->
 @section('content')
 <main>
-    <form action="{{ route('cart.addCard') }}" method="post">
+    <form action="{{ route('cart.addCard') }}" method="post" class="form-detailproduct">
     @csrf
     <div class="container">
         <div class="row">
@@ -129,15 +129,9 @@
     color: #FFF;
 }
 
-footer{
-    text-align: center;
-    margin-top:80px;
-    background:red;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    font-weight: 600;
-    font-size: 20px;
-    color: #FFF;
+.form-detailproduct{
+    margin-top: 60px;
+    margin-bottom: 60px;
 }
 </style>
 <script>
@@ -157,5 +151,4 @@ minus.addEventListener("click", () => {
 
 });
 </script>
-<footer>Web bán điện thoại</footer>
 @endsection

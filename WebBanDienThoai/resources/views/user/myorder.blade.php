@@ -1,4 +1,4 @@
-@extends('admin.dashboard')
+@extends('user.dashboard_user')
 
 
 <!-- Product section-->
@@ -48,6 +48,10 @@
 </main>
 
 <style>
+.cart-form{
+    margin-top: 20px;
+}
+
 .product-info {
     margin-bottom: 20px;
     margin-top: 20px;

@@ -16,8 +16,8 @@
                 </div>
                 <div class="mt-4 mb-5 form-wrapper">
                     <form action="{{ route('admin.adminSearchOrder') }}">
-                        <input type="text" name="id">
-                        <input type="submit" value="Tìm kiếm">
+                        <input type="text" name="id" class="input-search">
+                        <input type="submit" value="Tìm kiếm" class="btn btn-warning">
                     </form>
                 </div>
                 <table class="table table-striped table-hover">				
@@ -68,4 +68,19 @@
         </div>
     </div>
 </main>
+<style>
+    .input-search{
+        width: 30%;
+        height: 40px;
+        border-radius: 15px;
+        padding-left: 15px;
+    }
+    .btn-warning{
+        color: white;
+        font-weight: bold;
+    }
+    .btn-warning:hover{
+        color: white;
+    }
+</style>
 @endsection

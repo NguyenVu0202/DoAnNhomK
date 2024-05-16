@@ -1,15 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('user.dashboard_user')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</head>
 
+<!-- Product section-->
+@section('content')
 <body>
     <header></header>
     <div class="container">
@@ -36,29 +29,23 @@
                         </div>
                     </div>
                     <div class="content-card">
-                        {{ $post->content_post }}
-                    </div>
-                    <div class="image-post">
-                        <div class="row">
-                            @foreach ($file_name_image_post as $index => $image)
-                                @if ($index != 0)
-                                    <div class="col-md-6">
-                                        <img src="{{ asset('uploads/post/' . $image) }}" alt="">
-                                    </div>
-                                @endif
-                            @endforeach
-                        </div>
-                    </div>
+                        <span>{{ $post->content_post }}</span>
+                    </div>@foreach ($file_name_image_post as $index => $image)
+                        @if ($index != 0)
+                            <div class="image-post">
+                                <img src="{{ asset('uploads/post/' . $image) }}" alt="">
+                            </div>
+                        @endif
+                    @endforeach
                 </div>
             </div>
         </div>
     </div>
     <footer></footer>
     <style>
-        header {
-            margin-top: 100px;
+        .content{
+            margin-top: 80px;
         }
-
         .wrap {
             width: 100%;
             height: 350px;
@@ -86,17 +73,19 @@
         .card h2 {
             color: #4d4d4d;
             font-weight: 600;
+            font-size: 40px;
         }
 
         .info-auth h5 {
             margin-top: 2%;
             color: red;
             font-weight: 600;
-            font-size: 15px;
         }
 
         .info-auth p {
-            font-size: 13px;
+            font-size: 15px;
+            margin-bottom: 35px;
+            margin-top: 10px;
         }
 
         .info-auth i {
@@ -125,12 +114,21 @@
             margin-top: 10px;
         }
 
+        .image-post{
+            border: 2px solid #2e9fff;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
         .image-post img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
+
+        .content-card span{
+            font-size: 20px;
+        }
     </style>
 </body>
-
-</html>
+@endsection
