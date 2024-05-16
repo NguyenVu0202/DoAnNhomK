@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Hash;
 use Session;
+use Illuminate\Support\Facades\File;
 
 class CustomerController extends Controller
 {
@@ -25,15 +26,25 @@ class CustomerController extends Controller
             'password' => 'required|min:6',
             'phone' => 'required|max:10',
             'address' => 'required',
+            'image' =>'required',
 
         ]);
+        
         $data = $request->all();
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $ex = $file->getClientOriginalExtension();// lay phan mo rong. jpn,...
+            $filename = time().'.'.$ex;
+            $file->move('uploads/userimage/',$filename);
+            $data['image'] = $filename;
+        }
         User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'phone' => $data['phone'],
             'address' => $data['address'],
+            'image' =>$data['image'],
         ]);
         return redirect()->route('user.cus_login');
 

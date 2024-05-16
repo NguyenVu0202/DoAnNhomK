@@ -18,6 +18,7 @@
             <th>Email</th>
             <th>Phone</th>
             <th>Address</th>
+            <th>Image</th>
         </tr>
     </thead>
     <tbody>
@@ -28,6 +29,7 @@
             <th>{{$user->email}}</th>
             <th>{{$user->phone}}</th>
             <th>{{$user->address}}</th> 
+            <th>{{$user->image}}</th> 
             <th>
             <a href="{{route('user.updateUser',['id' => $user->id_user]) }}">Update</a>
             </th>
