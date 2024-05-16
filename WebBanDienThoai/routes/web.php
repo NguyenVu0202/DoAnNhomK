@@ -79,4 +79,4 @@ Route::get('/updateuser',[AdminUserController::class,'updateUser'])->name('user.
 Route::post('/updateuser',[AdminUserController::class,'postUpdateUser'])->name('user.postUpdateUser');
 
 // List_user  Search User
-route::get('/search',[AdminUserController::class,'searchUser'])->name('user.searchUser');
+Route::post('/search',[AdminUserController::class,'searchUser'])->name('user.searchUser');
