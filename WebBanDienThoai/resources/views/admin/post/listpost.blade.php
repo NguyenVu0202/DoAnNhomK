@@ -10,7 +10,7 @@
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-6">
-                            <h2>Quản Lý Hãng Sản Xuất</h2>
+                            <h2>Quản Lý Bài Viết</h2>
                         </div>
                         <div class="col-sm-6">
                             <a href="{{ route('post.indexaddpost') }}" class="btn btn-success" data-toggle="modal"><i
@@ -25,28 +25,31 @@
                             <th>Tên bài viết</th>
                             <th>Nội dung bài viết</th>
                             <th>Tên ảnh</th>
-                            <th>Hành động</th>
+                            <th>Sửa</th>
+                            <th>Xóa</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($posts as $post)
-                        <tr>
-                            <td>{{ $post->id_post }}</td>
-                            <td>{{ $post->title_post }}</td>
-                            <td>{{ $post->content_post }}</td>
-                            <td>
-                                <ul>
-                                    @foreach($postImages[$post->id_post] as $imageName)
-                                    <li>{{ $imageName }}</li>
-                                    @endforeach
-                                </ul>
-                            </td>
-                            <td>
-                                <a href="{{ route('post.indexupdatepost', ['id' => $post->id_post]) }}" class="mx-1">Sửa</a>
-                                <a
-                                    href="{{ route('post.deletepost', ['id' => $post->id_post]) }}">Xóa</a>
-                            </td>
-                        </tr>
+                            <tr>
+                                <td>{{ $post->id_post }}</td>
+                                <td>{{ $post->title_post }}</td>
+                                <td>{{ $post->content_post }}</td>
+                                <td>
+                                    <ul>
+                                        @foreach($postImages[$post->id_post] as $imageName)
+                                            <li>{{ $imageName }}</li>
+                                        @endforeach
+                                    </ul>
+                                </td>
+                                <td>
+                                    <a href="{{ route('post.indexupdatepost', ['id' => $post->id_post]) }}"
+                                        class="mx-1 btn btn-primary">Sửa</a>
+                                </td>
+                                <td>
+                                    <a href="{{ route('post.deletepost', ['id' => $post->id_post]) }}" class="btn btn-danger">Xóa</a>
+                                </td>
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>
@@ -54,9 +57,14 @@
         </div>
         <div class="row">
             <div class="col-md-5"></div>
-            <div class="col-md-2"></div>
+            <div class="col-md-2">{{ $posts->links() }}</div>
             <div class="col-md-5"></div>
         </div>
     </div>
 </main>
+<style>
+    table th,td{
+        border: 1px solid black;
+    }
+</style>
 @endsection

@@ -1,21 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('user.dashboard_user')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-</head>
 
+<!-- Product section-->
+@section('content')
 <body>
     <header style="margin-top: 200px;">
         <form action="{{ route('post.searchpost') }}" method="post">
             @csrf
             <div class="row">
-                <div class="col-md-4"></div>
+                <div class="col-md-2"></div>
                 <div class="col-md-8">
                     <div class="search">
                         <div class="row">
@@ -25,6 +18,7 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-2"></div>
             </div>
         </form>
     </header>
@@ -89,7 +83,7 @@
                                     href="{{ route('post.detailpost', ['id' => $item->id_post]) }}">{{ $item->title_post }}</a>
                             </h4>
                             <?php
-                                                $maxLength = 300;
+                                                $maxLength = 500;
                                                 $content = $item->content_post;
                                                 if (strlen($content) > $maxLength) {
                                                     $trimmedContent = substr($content, 0, $maxLength) . '...';
@@ -111,7 +105,9 @@
             </div>
         </div>
     </div>
-    <footer></footer>
+    <footer>
+            
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
     // Kích hoạt tự động chuyển slide và thiết lập thời gian chuyển slide là 5000 mili giây
@@ -128,7 +124,7 @@
         }
     });
     document.addEventListener('DOMContentLoaded', function() {
-        var maxLength = 300;
+        var maxLength = 500;
         @foreach($posts as $post)
         var content = document.getElementById('postContent_{{ $loop->iteration }}').innerHTML;
         if (content.length > maxLength) {
@@ -138,7 +134,7 @@
         @endforeach
     });
     document.addEventListener('DOMContentLoaded', function() {
-        var maxLength = 300;
+        var maxLength = 500;
         var contents = document.querySelectorAll('.content_text');
         contents.forEach(function(content) {
             var text = content.textContent;
@@ -185,6 +181,7 @@
     .body-card h4 a {
         text-decoration: none;
         color: black;
+        font-size: 25px;
     }
 
     .carousel-item a:hover,
@@ -200,6 +197,7 @@
     .content_text {
         color: black !important;
         margin-bottom: 20px;
+        font-size: 15px;
     }
 
     .item {
@@ -235,18 +233,32 @@
         border-radius: 25px;
         padding: 20px;
         color: gray;
+        font-size: 20px;
     }
 
     .btn-danger {
         height: 100%;
         font-weight: 600;
         font-size: 15px;
+        width: 100%;
+        font-size: 20px;
     }
 
     form {
         margin-bottom: 50px;
     }
+
+    #carouselExampleDark{
+        margin-bottom: 90px;
+    }
+
+    footer{
+        background: #000120 !important;
+        height: 50px;
+        margin-top: 50px;
+    }
     </style>
 </body>
 
 </html>
+@endsection

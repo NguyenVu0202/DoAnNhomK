@@ -28,7 +28,7 @@ class PostController extends Controller
     }
     public function listPost()
     {
-        $posts = Posts::all();
+        $posts = Posts::paginate(2);
         $postImages = [];
         foreach ($posts as $post) {
             $images = ImagePost::where('id_post', $post->id_post)->get();

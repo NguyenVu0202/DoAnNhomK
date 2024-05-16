@@ -31,39 +31,43 @@
                             <th>Mô tả</th>
                             <th>Thông số kỹ thuật</th>
                             <th>Hành động</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach($products as $product)
-                        <tr>
-                            <td>{{ $product->id_product }}</td>
-                            @foreach($categorys as $category)
-                            @if($product->id_category == $category->id_category)
-                            <td>{{ $category->name_category }}</td>
-                            @break
-                            @endif
-                            @endforeach
+                        @foreach($products as $product)
+                            <tr>
+                                <td>{{ $product->id_product }}</td>
+                                @foreach($categorys as $category)
+                                    @if($product->id_category == $category->id_category)
+                                        <td>{{ $category->name_category }}</td>
+                                        @break
+                                    @endif
+                                @endforeach
 
-                            @foreach($manufacturers as $manufacturer)
-                            @if($product->id_manufacturer == $manufacturer->id_manufacturer)
-                            <td>{{ $manufacturer->name_manufacturer }}</td>
-                            @break
-                            @endif
-                            @endforeach
+                                @foreach($manufacturers as $manufacturer)
+                                    @if($product->id_manufacturer == $manufacturer->id_manufacturer)
+                                        <td>{{ $manufacturer->name_manufacturer }}</td>
+                                        @break
+                                    @endif
+                                @endforeach
 
-                            <td>{{ $product->name_product }}</td>
-                            <td>{{ $product->quantity_product }}</td>
-                            <td>{{ $product->price_product }}</td>
-                            <td><img src="{{ asset('uploads/productimage/' . $product->image_address_product) }}" alt=""
-                                    style="width: 40%;height: 100px;margin: 20px;"></td>
-                            <td>{{ $product->describe_product }}</td>
-                            <td>{{ $product->specifications }}</td>
-                            <td>
-                                <a href="{{ route('product.indexUpdateproduct', ['id' => $product->id_product]) }}"
-                                    class="mx-1">Sửa</a>
-                                <a href="{{ route('product.deleteproduct', ['id' => $product->id_product]) }}">Xóa</a>
-                            </td>
-                        </tr>
+                                <td>{{ $product->name_product }}</td>
+                                <td>{{ $product->quantity_product }}</td>
+                                <td>{{ $product->price_product }}</td>
+                                <td><img src="{{ asset('uploads/productimage/' . $product->image_address_product) }}"
+                                        alt=""></td>
+                                <td>{{ $product->describe_product }}</td>
+                                <td>{{ $product->specifications }}</td>
+                                <td>
+                                    <a href="{{ route('product.indexUpdateproduct', ['id' => $product->id_product]) }}"
+                                        class="mx-1 btn btn-primary">Sửa</a>
+                                </td>
+                                <td>
+                                    <a href="{{ route('product.deleteproduct', ['id' => $product->id_product]) }}"
+                                        class="btn btn-danger">Xóa</a>
+                                </td>
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>
@@ -76,4 +80,13 @@
         </div>
     </div>
 </main>
+<style>
+    .listproduct-form table img {
+        width: 100px;
+        height: 100px;
+    }
+    table th, table td{
+        border: 1px solid black;
+    }
+</style>
 @endsection

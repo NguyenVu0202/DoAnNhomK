@@ -21,9 +21,9 @@
                 <table class="table table-striped table-hover">				
                     <thead>
                         <tr>                   
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Actions</th>
+                            <th>Mã danh mục</th>
+                            <th>Tên danh mục</th>
+                            <th>Hành động</th>
                         </tr>
                     </thead>					
                     <tbody>
@@ -32,8 +32,8 @@
                             <td>{{ $cates->id_category }}</td>
                             <td>{{ $cates->name_category }}</td>
                             <td>
-								<a href="{{ route('category.updateindex', ['id' => $cates->id_category]) }}" class="mx-1">Sửa</a>
-                                <a href="{{ route('category.deleteCategory', ['id' => $cates->id_category]) }}">Xóa</a>
+								<a href="{{ route('category.updateindex', ['id' => $cates->id_category]) }}" class="mx-1 btn btn-primary">Sửa</a>
+                                <a href="{{ route('category.deleteCategory', ['id' => $cates->id_category]) }}" class="btn btn-danger">Xóa</a>
                             </td>
                         </tr>
 					@endforeach
@@ -48,4 +48,9 @@
         </div>
     </div>
 </main>
+<style>
+    table th, table td{
+        border: 1px solid black;
+    }
+</style>
 @endsection

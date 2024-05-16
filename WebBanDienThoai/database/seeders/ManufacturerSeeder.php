@@ -29,15 +29,5 @@ class ManufacturerSeeder extends Seeder
             'name_manufacturer' => 'Nokia',
             'image_manufacturer' => '1714729195.webp',
         ]);
-
-        DB::table('manufacturers')->insert([
-            'name_manufacturer' => 'Oppo',
-            'image_manufacturer' => 'OPPO_LOGO_2019.png',
-        ]);
-
-        DB::table('manufacturers')->insert([
-            'name_manufacturer' => 'Oppo',
-            'image_manufacturer' => '1280px-Vivo_Logo.svg.png',
-        ]);
     }
 }

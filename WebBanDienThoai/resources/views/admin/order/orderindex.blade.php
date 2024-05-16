@@ -16,50 +16,67 @@
                 </div>
                 <div class="mt-4 mb-5 form-wrapper">
                     <form action="{{ route('admin.adminSearchOrder') }}">
-                        <input type="text" name="id">
-                        <input type="submit" value="Tìm kiếm">
+                        <input type="text" name="id" class="input-search">
+                        <input type="submit" value="Tìm kiếm" class="btn btn-warning">
                     </form>
                 </div>
-                <table class="table table-striped table-hover">				
+                <table class="table table-striped table-hover">
                     <thead>
-                        <tr>                   
-                            <th>ID_Order</th>
-                            <th>ID_User</th>
-                            <th>Price</th>
-                            <th>Address</th>
-                            <th>Created_at</th>
-                        </tr>
-                    </thead>					
-                    <tbody>
-					@foreach($order as $orders)
                         <tr>
-                            <td>{{ $orders->id_order }}</td>
-                            <td>{{ $orders->id_user }}</td>
-                            <td>{{ $orders->total_order }}</td>
-                            <td>{{ $orders->address }}</td>
-                            <td>{{ $orders->created_at }}</td>
-                            <td>
-								<a href="{{ route('admin.adminDetailsOrderIndex', ['id_order' => $orders->id_order]) }}" class="mx-1">Xem</a>
-                                <a href="{{ route('admin.adminDetailsOrderDelete', ['id_order' => $orders->id_order]) }}">Xóa</a>
-                            </td>
+                            <th>Mã đơn hàng</th>
+                            <th>Mã người dùng</th>
+                            <th>Giá</th>
+                            <th>Địa chỉ</th>
+                            <th>Ngày thanh toán</th>
+                            <th></th>
                         </tr>
-					@endforeach
+                    </thead>
+                    <tbody>
+                        @foreach($order as $orders)
+                            <tr>
+                                <td>{{ $orders->id_order }}</td>
+                                <td>{{ $orders->id_user }}</td>
+                                <td>{{ $orders->total_order }}</td>
+                                <td>{{ $orders->address }}</td>
+                                <td>{{ $orders->created_at }}</td>
+                                <td>
+                                    <a href="{{ route('admin.adminDetailsOrderIndex', ['id_order' => $orders->id_order]) }}"
+                                        class="mx-1 btn btn-primary">Xem</a>
+                                    <a href="{{ route('admin.adminDetailsOrderDelete', ['id_order' => $orders->id_order]) }}"
+                                        class="btn btn-danger">Xóa</a>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
-                <div class="clearfix">
-                    <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
-                    <ul class="pagination">
-                        <li class="page-item"><a href="#" class="page-link">Previous</a></li>
-                        <li class="page-item"><a href="#" class="page-link">1</a></li>
-                        <li class="page-item"><a href="#" class="page-link">2</a></li>
-                        <li class="page-item active"><a href="#" class="page-link">3</a></li>
-                        <li class="page-item"><a href="#" class="page-link">4</a></li>
-                        <li class="page-item"><a href="#" class="page-link">5</a></li>
-                        <li class="page-item"><a href="#" class="page-link">Next</a></li>
-                    </ul>
+                <div class="row">
+                    <div class="col-md-5"></div>
+                    <div class="col-md-2">{{ $order->links() }}</div>
+                    <div class="col-md-5"></div>
                 </div>
             </div>
         </div>
     </div>
 </main>
+<style>
+    .input-search {
+        width: 30%;
+        height: 40px;
+        border-radius: 15px;
+        padding-left: 15px;
+    }
+
+    .btn-warning {
+        color: white;
+        font-weight: bold;
+    }
+
+    .btn-warning:hover {
+        color: white;
+    }
+
+    table th, table td{
+        border: 1px solid black;
+    }
+</style>
 @endsection

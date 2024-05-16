@@ -34,7 +34,7 @@ Route::post('addproduct', [ProductController::class, 'addProduct'])->name('produ
 Route::get('deleteproduct', [ProductController::class, 'deleteProduct'])->name('product.deleteproduct');
 Route::get('updateproduct', [ProductController::class, 'indexUpdateProduct'])->name('product.indexUpdateproduct');
 Route::post('updateproduct', [ProductController::class, 'updateProduct'])->name('product.updateproduct');
-Route::get('Home', [HomeController::class, 'indexHome'])->name('home.index');
+Route::get('/Home', [HomeController::class, 'indexHome'])->name('home.index');
 Route::get('detailproduct', [HomeController::class, 'indexDetailProduct'])->name('product.indexDetailproduct');
 Route::post('addcard', [CartController::class, 'addCart'])->name('cart.addCard');
 Route::get('mycard', [CartController::class, 'indexCard'])->name('cart.indexCart');
@@ -63,7 +63,7 @@ Route::get('/register',[CustomerController::class,'indexRegister']);
 Route::post('/register',[CustomerController::class,'authRegister'])->name('user.cus_register');
 
 // Login client
-Route::get('/login',[CustomerController::class,'indexLogin']);
+Route::get('/login',[CustomerController::class,'indexLogin'])->name('user.indexlogin');
 Route::post('/login',[CustomerController::class,'authLogin'])->name('user.cus_login');
 
 // Logout
@@ -79,4 +79,4 @@ Route::get('/updateuser',[AdminUserController::class,'updateUser'])->name('user.
 Route::post('/updateuser',[AdminUserController::class,'postUpdateUser'])->name('user.postUpdateUser');
 
 // List_user  Search User
-Route::post('/search',[AdminUserController::class,'searchUser'])->name('user.searchUser');
+route::get('/search',[AdminUserController::class,'searchUser'])->name('user.searchUser');

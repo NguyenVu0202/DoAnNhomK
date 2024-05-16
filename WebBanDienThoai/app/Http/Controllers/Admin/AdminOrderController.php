@@ -12,7 +12,7 @@ class AdminOrderController extends Controller
 {
     public function orderindexAdmin()
     {
-        $order = Order::all();
+        $order = Order::paginate(2);
         return view('admin.order.orderindex', ['order' => $order]);
     }
 
