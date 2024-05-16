@@ -39,5 +39,21 @@ class UserSeeder extends Seeder
             'phone' => '1278912321',
             'address' => 'Thành phố Hồ Chí Minh',
         ]);
+
+        DB::table('users')->insert([
+            'name' => 'nhu',
+            'email' => 'nhu@gmail.com',
+            'password' => Hash::make('123456'),
+            'phone' => '0123456788',
+            'address' => 'Đ.Võ Văn Ngân, Phường Linh Chiểu, Quận Thủ Đức, Thành phố Hồ Chí Minh',
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'hoang',
+            'email' => 'hoang@gmail.com',
+            'password' => Hash::make('123456'),
+            'phone' => '0123456787',
+            'address' => 'Đ.Võ Văn Ngân, Phường Linh Chiểu, Quận Thủ Đức, Thành phố Hồ Chí Minh',
+        ]);
     }
 }

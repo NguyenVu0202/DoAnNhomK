@@ -11,7 +11,7 @@ use App\Models\Manufacturer;
 class HomeController extends Controller
 {
     public function indexHome(){
-        $product = Product::paginate(12);
+        $product = Product::paginate(6);
         $get6newproduct = Product::orderBy('created_at', 'desc')->take(6)->get();
         $category = Category::all();
         $manufacturer = Manufacturer::all();

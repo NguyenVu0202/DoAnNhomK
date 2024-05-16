@@ -58,8 +58,8 @@ class AdminUserController extends Controller
     {
      $search = $request->input('search'); // lay dữ liệu tìm kiếm từ request
      
-$users = User::where('name','like','%'.$search.'%')
-->orWhere('email','like','%'.$search.'%')->get();
-return view('admin.list.search_user',['users'=>$users, 'search'=>$search]);
+    $users = User::where('name','like','%'.$search.'%')
+    ->orWhere('email','like','%'.$search.'%')->get();
+    return view('admin.list.search_user',['users'=>$users, 'search'=>$search]);
     }
 }
