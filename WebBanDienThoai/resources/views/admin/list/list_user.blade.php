@@ -29,7 +29,8 @@
             <th>{{$user->email}}</th>
             <th>{{$user->phone}}</th>
             <th>{{$user->address}}</th> 
-            <th>{{$user->image}}</th> 
+            <th><img src="{{ asset('uploads/userimage/' . $user->image) }}"
+                                    alt="" style="width: 70%;height: 100px;margin: 20px;"></th> 
             <th>
             <a href="{{route('user.updateUser',['id' => $user->id_user]) }}">Update</a>
             </th>
