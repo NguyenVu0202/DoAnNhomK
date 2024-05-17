@@ -29,20 +29,9 @@ class CartController extends Controller
 
     public function addCart(Request $request)
     {
-        // $data = $request->all();
-        // $product = Product::where('id_product', $data['id_product'])->first();
-        // $total_card = $data['quantity_card'] * $product->price_product;
-        // Cart::create([
-        //     'id_user' => session('cart')['user_id'],
-        //     'id_product' => $product->id_product,
-        //     'quantity_product' => $data['quantity_card'],
-        //     'total_cart' => $total_card,
-        // ]);
-
-
         $data = $request->all();
         $product = Product::where('id_product', $data['id_product'])->first();
-        $total_cart = $data['quantity_cart'] * $product->price_product;
+        $total_cart = $data['quantity_cart'] * $product->price_product;        
         // Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
         $carts = Cart::where('id_user', session('cart')['user_id'])
             ->where('id_product', $product->id_product)
